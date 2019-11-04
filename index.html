@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<b style="font-size: 16px"><pre>
+let main = 'global';
+let someObject = { a:1 };
+
+function func(n) {
+    const x = 3;
+    let y = n + x;
+
+    return function level_1(x) {
+        const z = 1 + x;
+        const k = 0;
+        const level_2 = function () {
+            let a = y + x + z;
+            return function level_3() {
+                return function level_4 (){
+                };
+            }
+        };
+        return level_2;
+    }
+}
+console.dir(func);
+console.dir(func(1));
+console.dir(func(1)(2));
+console.dir(func(1)(2)());
+console.dir(func(1)(2)()());
+</pre></b>
+
+<script src="index.js"></script>
+</body>
+</html>
