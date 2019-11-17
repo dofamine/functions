@@ -1,3 +1,14 @@
+//Example 1:
+// function mul(a, b) {
+//     return a * b
+// }
+//
+// const double = mul.bind(null, 2); // context set to null, it doesn’t used here
+// const doubleArrow = x => mul(2, x);
+// console.log( double(3) ); // = mul(2, 3) = 6
+// console.log( double(4) ); // = mul(2, 4) = 8
+// console.log( double(5) ); // = mul(2, 5) = 10
+
 // TASK 1
 // Из нижепредставленых констант с помощью функции combineUrl создать
 // функции, которые при вызове будут возвращать результат представленый
@@ -20,6 +31,27 @@
 // console.log(googleMaps('45.65&51.45')); // https://google.com/coords=45.65&51.45
 // console.log(yandexSearch('hello yandex')); // https://yandex.com/search=hello yandex
 // console.log(yandexMaps('45.65&51.45')); // https://yandex.com/coords=45.65&51.45
+
+// Example 2: chaining
+// const storage = [ {name: 'John', surname: 'Ivanov'}, {name: 'Petya', surname: 'Petrov'} ];
+// const userController = {
+//     read(name) {
+//         // read user from DB
+//         return this;
+//     },
+//     update(obj) {
+//         // update properties
+//         return this;
+//     },
+//     save() {
+//         // save user to db
+//         return this;
+//     }
+// };
+// userController
+//     .read('John')
+//     .update({ surname: 'Smith' })
+//     .save();
 
 //TASK 2
 //Даны два объекта которые нужно расширить методами add, change, log
@@ -49,6 +81,19 @@
 //
 // vanya.add('prof','programmer').change('name','Ivan').change('age', 60).log(); // { name: 'Ivan', surname: 'Vasi4kin',age: 60, prof: 'programmer' }
 // alesha.change('age',85).add('hobby', 'football').change('hobby', 'volleyball').log(); // { name: 'Alesha', surname: 'Popov',age: 85, hobby: 'volleyball' }
+
+// Example 3: Context may be different depends on how function is invoked
+// const user = { firstName: 'User' };
+// const admin = { firstName: 'Admin' };
+// function getName() {
+//     console.log(this.firstName);
+// }
+// user.f = getName;
+// admin.g = getName;
+// // this refers to object before dot
+// getName(); // undefined
+// user.f(); // User
+// admin.g(); // Admin
 
 // TASK 3
 // Реализовать ф-цию patchObject, которая первым параметром принимает объект который будет разширен
@@ -96,6 +141,15 @@
 // console.log(obj3.showSuccessKoef()); // 0
 // console.log(obj3.myAge()); // age is unavailable
 
+//Example 4: recursion
+// function pow(n, m) {
+//     if (m === 0) return 1;
+//     if (m === 1) return n;
+//     return n * pow(n, m - 1);
+// }
+//
+// console.log(pow(2, 16));
+
 // TASK 4
 // создать функцию аргументом которой будет порядковый номер последовательности tribonacci:
 // 0, 0, 1, 1, 2, 4, 7, 13, 24, 44, 81, 149, 274, 504, 927, 1705, 3136, 5768, 10609, 19513, 35890, 66012,...
@@ -107,6 +161,21 @@
 // }
 //
 // console.log(tribonacci(15)); // 927
+
+// Example 5: closure
+// const greetDeeplyCurried = function (greeting) {
+//     return function (separator) {
+//         return function (emphasis) {
+//             return function (name) {
+//                 console.log(greeting + separator + name + emphasis);
+//             };
+//         };
+//     };
+// };
+//
+// const greetAwkwardly = greetDeeplyCurried("Hello")("...")("?");
+// greetAwkwardly("Heidi"); //"Hello...Heidi?"
+// greetAwkwardly("Eddie"); //"Hello...Eddie?"
 
 // TASK 5
 // Реализовать ф-ции чисел и ф-ции операторов таким образом чтобы они работали в формате число - оператор - число
