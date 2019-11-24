@@ -91,9 +91,9 @@
 // user.f = getName;
 // admin.g = getName;
 // // this refers to object before dot
-// getName(); // undefined
-// user.f(); // User
-// admin.g(); // Admin
+// getName();
+// user.f();
+// admin.g();
 
 // TASK 3
 // Реализовать ф-цию patchObject, которая первым параметром принимает объект который будет разширен
@@ -156,9 +156,6 @@
 // function tribonacci(n) {
 //     your code here...;
 // }
-// function tribonacci(n) {
-//     your code here...;
-// }
 //
 // console.log(tribonacci(15)); // 927
 
@@ -174,8 +171,8 @@
 // };
 //
 // const greetAwkwardly = greetDeeplyCurried("Hello")("...")("?");
-// greetAwkwardly("Heidi"); //"Hello...Heidi?"
-// greetAwkwardly("Eddie"); //"Hello...Eddie?"
+// greetAwkwardly("Heidi");
+// greetAwkwardly("Eddie");
 
 // TASK 5
 // Реализовать ф-ции чисел и ф-ции операторов таким образом чтобы они работали в формате число - оператор - число
